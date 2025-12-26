@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // Use correct package name
 import 'pages/SignInPage.dart';
-// import 'pages/SignInPage.dart';
+import 'pages/SignUpPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/sign-in',
       routes: {
         '/sign-in': (context) => SignInPage(),
-        // '/sign-up': (context) => SignUpPage(),
+        '/sign-up': (context) => SignUpPage(),
       },
     );
   }
