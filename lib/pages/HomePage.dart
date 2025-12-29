@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+i.mport 'package:flutter/material.dart';
 import 'package:flutter_app/animation/ScaleRoute.dart';
 import 'package:flutter_app/models/food.dart';
 import 'package:flutter_app/pages/FoodDetailsPage.dart';
