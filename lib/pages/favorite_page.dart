@@ -19,7 +19,10 @@ class _FavoritePageState extends State<FavoritePage> {
         backgroundColor: Color(0xFFFAFAFA),
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Color(0xFF3a3737)),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Color(0xFF3a3737),
+          ),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
@@ -62,7 +65,9 @@ class _FavoritePageState extends State<FavoritePage> {
 
           if (favoriteService.isLoading) {
             return Center(
-              child: CircularProgressIndicator(color: Color(0xFFfb3132)),
+              child: CircularProgressIndicator(
+                color: Color(0xFFfb3132),
+              ),
             );
           }
 
@@ -81,7 +86,11 @@ class _FavoritePageState extends State<FavoritePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.favorite_border, color: Color(0xFFfae3e2), size: 100),
+          Icon(
+            Icons.favorite_border,
+            color: Color(0xFFfae3e2),
+            size: 100,
+          ),
           SizedBox(height: 20),
           Text(
             'Login to Save Favorites',
@@ -94,7 +103,10 @@ class _FavoritePageState extends State<FavoritePage> {
           SizedBox(height: 10),
           Text(
             'Sign in to save your favorite food items',
-            style: TextStyle(color: Color(0xFF6e6e71), fontSize: 16),
+            style: TextStyle(
+              color: Color(0xFF6e6e71),
+              fontSize: 16,
+            ),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 30),
@@ -124,7 +136,11 @@ class _FavoritePageState extends State<FavoritePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.favorite_border, color: Color(0xFFfae3e2), size: 100),
+          Icon(
+            Icons.favorite_border,
+            color: Color(0xFFfae3e2),
+            size: 100,
+          ),
           SizedBox(height: 20),
           Text(
             'No Favorites Yet',
@@ -137,7 +153,10 @@ class _FavoritePageState extends State<FavoritePage> {
           SizedBox(height: 10),
           Text(
             'Tap the heart icon to add food items',
-            style: TextStyle(color: Color(0xFF6e6e71), fontSize: 16),
+            style: TextStyle(
+              color: Color(0xFF6e6e71),
+              fontSize: 16,
+            ),
           ),
           SizedBox(height: 30),
           ElevatedButton(
@@ -175,7 +194,9 @@ class _FavoritePageState extends State<FavoritePage> {
   Widget _buildFavoriteItem(Food food, FavoriteService favoriteService) {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
       elevation: 2,
       child: InkWell(
         onTap: () {
@@ -278,7 +299,11 @@ class _FavoritePageState extends State<FavoritePage> {
               top: 8,
               right: 8,
               child: IconButton(
-                icon: Icon(Icons.favorite, color: Color(0xFFfb3132), size: 24),
+                icon: Icon(
+                  Icons.favorite,
+                  color: Color(0xFFfb3132),
+                  size: 24,
+                ),
                 onPressed: () async {
                   await favoriteService.removeFromFavorites(
                     food.id,

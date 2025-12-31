@@ -6,7 +6,10 @@ import 'package:provider/provider.dart';
 class FoodTile extends StatelessWidget {
   final Food food;
 
-  const FoodTile({Key? key, required this.food}) : super(key: key);
+  const FoodTile({
+    Key? key,
+    required this.food,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +40,7 @@ class FoodTile extends StatelessWidget {
           // CONTENT - Reduced padding
           Padding(
             padding: const EdgeInsets.fromLTRB(
-              12,
-              10,
-              12,
-              10,
-            ), // Reduced vertical padding
+                12, 10, 12, 10), // Reduced vertical padding
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,6 +58,7 @@ class FoodTile extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 4), // Reduced from 6
+
                 // CATEGORY + RATING
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,11 +84,8 @@ class FoodTile extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        const Icon(
-                          Icons.star,
-                          size: 12,
-                          color: Color(0xFFfb3132),
-                        ), // Smaller
+                        const Icon(Icons.star,
+                            size: 12, color: Color(0xFFfb3132)), // Smaller
                         const SizedBox(width: 3), // Reduced
                         Text(
                           food.rating.toStringAsFixed(1),
@@ -111,6 +108,7 @@ class FoodTile extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 8), // Reduced from 12
+
                 // PRICE + TINY HEART - FIXED
                 SizedBox(
                   height: 24, // Fixed small height
@@ -131,15 +129,12 @@ class FoodTile extends StatelessWidget {
                       // TINY HEART
                       Consumer<FavoriteService>(
                         builder: (context, favoriteService, child) {
-                          final isFavorite = favoriteService.isFavorite(
-                            food.id,
-                          );
+                          final isFavorite =
+                              favoriteService.isFavorite(food.id);
                           return GestureDetector(
                             onTap: () async {
-                              await favoriteService.toggleFavorite(
-                                food,
-                                context: context,
-                              );
+                              await favoriteService.toggleFavorite(food,
+                                  context: context);
                             },
                             child: Icon(
                               isFavorite
@@ -185,7 +180,10 @@ class FoodTile extends StatelessWidget {
         },
       );
     } else {
-      return Image.asset(food.image, fit: BoxFit.cover);
+      return Image.asset(
+        food.image,
+        fit: BoxFit.cover,
+      );
     }
   }
 }

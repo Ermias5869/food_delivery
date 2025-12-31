@@ -62,7 +62,9 @@ class _PopularFoodsWidgetState extends State<PopularFoodsWidget> {
       child: Column(
         children: <Widget>[
           PopularFoodTitle(),
-          Expanded(child: _buildContent()),
+          Expanded(
+            child: _buildContent(),
+          )
         ],
       ),
     );
@@ -78,7 +80,10 @@ class _PopularFoodsWidgetState extends State<PopularFoodsWidget> {
             SizedBox(height: 10),
             Text(
               'Loading popular foods...',
-              style: TextStyle(color: Color(0xFF6e6e71), fontSize: 12),
+              style: TextStyle(
+                color: Color(0xFF6e6e71),
+                fontSize: 12,
+              ),
             ),
           ],
         ),
@@ -90,7 +95,11 @@ class _PopularFoodsWidgetState extends State<PopularFoodsWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.error_outline, color: Colors.red, size: 40),
+            Icon(
+              Icons.error_outline,
+              color: Colors.red,
+              size: 40,
+            ),
             SizedBox(height: 10),
             Text(
               'Failed to load popular foods',
@@ -103,7 +112,10 @@ class _PopularFoodsWidgetState extends State<PopularFoodsWidget> {
             SizedBox(height: 5),
             Text(
               'Check your connection',
-              style: TextStyle(color: Color(0xFF6e6e71), fontSize: 12),
+              style: TextStyle(
+                color: Color(0xFF6e6e71),
+                fontSize: 12,
+              ),
             ),
             SizedBox(height: 10),
             ElevatedButton(
@@ -127,7 +139,11 @@ class _PopularFoodsWidgetState extends State<PopularFoodsWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.fastfood, color: Color(0xFFfae3e2), size: 50),
+            Icon(
+              Icons.fastfood,
+              color: Color(0xFFfae3e2),
+              size: 50,
+            ),
             SizedBox(height: 10),
             Text(
               'No popular foods',
@@ -140,7 +156,10 @@ class _PopularFoodsWidgetState extends State<PopularFoodsWidget> {
             SizedBox(height: 5),
             Text(
               'Check back later',
-              style: TextStyle(color: Color(0xFF9b9b9c), fontSize: 12),
+              style: TextStyle(
+                color: Color(0xFF9b9b9c),
+                fontSize: 12,
+              ),
             ),
           ],
         ),
@@ -199,7 +218,7 @@ class PopularFoodTitle extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
             ),
-          ),
+          )
         ],
       ),
     );

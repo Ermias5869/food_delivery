@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/food.dart';
-
+import 'package:flutter_app/services/api_service.dart';
 import 'package:flutter_app/widgets/food_tile.dart';
 import 'package:flutter_app/animation/ScaleRoute.dart';
 import 'package:flutter_app/pages/FoodDetailsPage.dart';
@@ -134,18 +134,13 @@ class _CategoryPageState extends State<CategoryPage> {
               onPressed: _loadCategoryFoods,
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFFfb3132),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 12,
-                ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
+                    borderRadius: BorderRadius.circular(8)),
               ),
-              child: const Text(
-                'Retry',
-                style: TextStyle(fontSize: 16, color: Colors.white),
-              ),
+              child: const Text('Retry',
+                  style: TextStyle(fontSize: 16, color: Colors.white)),
             ),
           ],
         ),
@@ -162,10 +157,9 @@ class _CategoryPageState extends State<CategoryPage> {
             Text(
               'No items available',
               style: TextStyle(
-                color: Color(0xFF6e6e71),
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              ),
+                  color: Color(0xFF6e6e71),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 8),
             Text(

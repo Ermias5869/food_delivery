@@ -20,9 +20,21 @@ class FoodDetailsSlider extends StatelessWidget {
       child: Container(
         child: CarouselSlider(
           items: [
-            Image.asset(slideImage1, fit: BoxFit.cover, width: double.infinity),
-            Image.asset(slideImage2, fit: BoxFit.cover, width: double.infinity),
-            Image.asset(slideImage3, fit: BoxFit.cover, width: double.infinity),
+            Image.asset(
+              slideImage1,
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
+            Image.asset(
+              slideImage2,
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
+            Image.asset(
+              slideImage3,
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
           ],
           options: CarouselOptions(
             height: 250,

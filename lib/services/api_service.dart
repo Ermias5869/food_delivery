@@ -3,17 +3,8 @@ import 'package:http/http.dart' as http;
 import '../models/food.dart';
 
 class ApiService {
-  // For Physical Device - Use your computer's IP address
-  // static const String baseUrl = 'http://192.168.1.100:5000/api';
-
-  // For Android Emulator
-  static const String baseUrl = 'http://10.161.164.188:5000/api';
-  // static const String baseUrl = 'http://10.151.209.124:5000/api';
-
-  // For iOS Simulator
-  // static const String baseUrl = 'http://localhost:5000/api';
-
-  // SEARCH FOODS - NEW METHOD
+  static const String baseUrl =
+      'https://food-delivery-api-g95h.onrender.com/api';
   static Future<List<Food>> searchFoods(String query) async {
     try {
       print('🔍 API Search Request: GET $baseUrl/foods?search=$query');
@@ -50,7 +41,6 @@ class ApiService {
     }
   }
 
-  // GET ALL FOODS (for when clearing search) - NEW METHOD
   static Future<List<Food>> getAllFoods() async {
     try {
       print('API Request: GET $baseUrl/foods');

@@ -5,9 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/review.dart';
 
 class ReviewService extends ChangeNotifier {
-  static const String _baseUrl = 'http://10.161.175.147:5000/api';
-  // static const String _baseUrl = 'http://10.151.209.124:5000/api';
-
+  static const String _baseUrl =
+      'https://food-delivery-api-g95h.onrender.com/api';
   String? _authToken;
   String? _userName; // Add this
   String? _userId; // Add this

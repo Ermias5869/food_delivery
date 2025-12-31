@@ -65,8 +65,7 @@ class Review {
 
     // If no name found, try to get it from alternative fields
     if (userName == null || userName.isEmpty) {
-      userName =
-          json['author']?.toString() ??
+      userName = json['author']?.toString() ??
           json['username']?.toString() ??
           'User'; // Default to 'User' instead of 'Anonymous'
     }
