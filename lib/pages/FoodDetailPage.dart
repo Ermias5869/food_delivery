@@ -1,4 +1,3 @@
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 import 'package:flutter/material.dart';
 import 'package:flutter_app/animation/ScaleRoute.dart';
 import 'package:flutter_app/models/food.dart';
@@ -98,44 +97,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
       );
     }
   }
-  // Future<void> _submitReview() async {
-  //   if (_reviewCommentController.text.trim().isEmpty) {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(
-  //           content: Text('Please enter a comment'),
-  //           backgroundColor: Colors.orange),
-  //     );
-  //     return;
-  //   }
 
-  //   final result = await _reviewService.addReview(
-  //     foodId: widget.food.id,
-  //     rating: _newReviewRating,
-  //     comment: _reviewCommentController.text.trim(),
-  //     context: context,
-  //   );
-
-  //   if (result['success'] == true) {
-  //     _reviewCommentController.clear();
-  //     _newReviewRating = 5;
-  //     _showAddReviewForm = false;
-  //     await _loadReviews();
-
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(
-  //           content: Text('Review submitted successfully!'),
-  //           backgroundColor: Colors.green),
-  //     );
-  //   } else {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(
-  //           content: Text(result['message'] ?? 'Failed to submit review'),
-  //           backgroundColor: Colors.red),
-  //     );
-  //   }
-  // }
-
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -236,7 +198,6 @@ You 🐈‍⬛, [12/29/2025 9:23 PM]
                   // Ingredients
                   _buildIngredientsTab(),
 
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 // Reviews - Fully scrollable
                   SingleChildScrollView(
                     padding: EdgeInsets.all(15),
@@ -317,7 +278,6 @@ You 🐈‍⬛, [12/29/2025 9:23 PM]
                                     labelText: 'Your Comment',
                                     border: OutlineInputBorder(
 
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 borderRadius: BorderRadius.circular(8)),
                                     focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -398,7 +358,6 @@ borderRadius: BorderRadius.circular(8)),
                                       backgroundColor: Color(0xFFfae3e2),
                                       child: Text(
 
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 review.userName
                                                 ?.substring(0, 1)
                                                 .toUpperCase() ??
@@ -472,8 +431,6 @@ review.userName
     );
   }
 
-You 🐈‍⬛, [12/29/2025 9:23 PM]
-///////////////////////////////////////////////////////////////////////
   Widget _buildFoodImage() {
     if (widget.food.isLocalImage) {
       return Image.asset(
@@ -600,7 +557,6 @@ You 🐈‍⬛, [12/29/2025 9:23 PM]
       );
     }
 
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 return ListView.builder(
       padding: EdgeInsets.all(15),
       itemCount: widget.food.ingredients.length,
@@ -704,7 +660,6 @@ return ListView.builder(
                 ),
                 SizedBox(height: 10),
 
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 // Star Rating
                 Row(
                   children: [
@@ -779,7 +734,6 @@ You 🐈‍⬛, [12/29/2025 9:23 PM]
             ),
           ),
 
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 // Reviews List
         Expanded(
           child: Padding(
@@ -867,7 +821,6 @@ You 🐈‍⬛, [12/29/2025 9:23 PM]
                                           Text(
                                             review.userName ?? 'Anonymous',
 
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 style: TextStyle(
                                               fontWeight: FontWeight.w600,
                                               color: Color(0xFF3a3a3b),
@@ -951,7 +904,6 @@ class FoodTitleWidget extends StatelessWidget {
     required this.productHost,
   });
 
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 @override
   Widget build(BuildContext context) {
     return Column(
@@ -1101,8 +1053,6 @@ class DetailContentMenu extends StatelessWidget {
         ),
 
         SizedBox(height: 15),
-
-You 🐈‍⬛, [12/29/2025 9:23 PM]
 // Preparation Time
         Container(
           padding: EdgeInsets.all(15),
