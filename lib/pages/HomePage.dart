@@ -1,8 +1,10 @@
-i.mport 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_app/animation/ScaleRoute.dart';
 import 'package:flutter_app/models/food.dart';
 import 'package:flutter_app/pages/FoodDetailsPage.dart';
 import 'package:flutter_app/pages/signinpage.dart';
+import 'package:flutter_app/services/api_service.dart';
+import 'package:flutter_app/services/favorite_service.dart';
 import 'package:flutter_app/widgets/bestfoodwidget.dart';
 import 'package:flutter_app/widgets/bottomnavbarwidget.dart';
 import 'package:flutter_app/widgets/popularfoodswidget.dart';
@@ -210,46 +212,35 @@ class _HomePageState extends State<HomePage> {
               color: const Color(0xFFfae3e2),
               child: food.image.isNotEmpty
                   ? (food.image.startsWith('http')
-                        ? Image.network(
-                            food.image,
-                            fit: BoxFit.cover,
-                            loadingBuilder: (context, child, loadingProgress) {
-                              if (loadingProgress == null) return child;
-                              return const Center(
+                      ? Image.network(
+                          food.image,
+                          fit: BoxFit.cover,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return const Center(
                                 child: CircularProgressIndicator(
-                                  color: Color(0xFFfb3132),
-                                ),
-                              );
-                            },
-                            errorBuilder: (context, error, stackTrace) {
-                              return const Center(
-                                child: Icon(
-                                  Icons.fastfood,
-                                  color: Color(0xFFfb3132),
-                                  size: 40,
-                                ),
-                              );
-                            },
-                          )
-                        : Image.asset(
-                            food.image,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return const Center(
-                                child: Icon(
-                                  Icons.fastfood,
-                                  color: Color(0xFFfb3132),
-                                  size: 40,
-                                ),
-                              );
-                            },
-                          ))
+                                    color: Color(0xFFfb3132)));
+                          },
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Center(
+                              child: Icon(Icons.fastfood,
+                                  color: Color(0xFFfb3132), size: 40),
+                            );
+                          },
+                        )
+                      : Image.asset(
+                          food.image,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Center(
+                              child: Icon(Icons.fastfood,
+                                  color: Color(0xFFfb3132), size: 40),
+                            );
+                          },
+                        ))
                   : const Center(
-                      child: Icon(
-                        Icons.fastfood,
-                        color: Color(0xFFfb3132),
-                        size: 40,
-                      ),
+                      child: Icon(Icons.fastfood,
+                          color: Color(0xFFfb3132), size: 40),
                     ),
             ),
           ),
@@ -277,9 +268,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 3,
-                      ),
+                          horizontal: 8, vertical: 3),
                       decoration: BoxDecoration(
                         color: const Color(0xFFfb3132).withOpacity(0.12),
                         borderRadius: BorderRadius.circular(20),
@@ -295,26 +284,20 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Row(
                       children: [
-                        const Icon(
-                          Icons.star,
-                          size: 12,
-                          color: Color(0xFFfb3132),
-                        ),
+                        const Icon(Icons.star,
+                            size: 12, color: Color(0xFFfb3132)),
                         const SizedBox(width: 3),
                         Text(
                           food.rating.toStringAsFixed(1),
                           style: const TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF333333),
-                          ),
+                              fontSize: 11,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF333333)),
                         ),
                         Text(
                           ' (${food.totalReviews})',
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: Colors.grey[600],
-                          ),
+                          style:
+                              TextStyle(fontSize: 10, color: Colors.grey[600]),
                         ),
                       ],
                     ),
@@ -339,10 +322,8 @@ class _HomePageState extends State<HomePage> {
                         final isFavorite = favoriteService.isFavorite(food.id);
                         return GestureDetector(
                           onTap: () async {
-                            await favoriteService.toggleFavorite(
-                              food,
-                              context: context,
-                            );
+                            await favoriteService.toggleFavorite(food,
+                                context: context);
                           },
                           child: Icon(
                             isFavorite ? Icons.favorite : Icons.favorite_border,
@@ -380,12 +361,13 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(
-              Icons.notifications_none,
-              color: Color(0xFF3a3737),
-            ),
+            icon:
+                const Icon(Icons.notifications_none, color: Color(0xFF3a3737)),
             onPressed: () {
-              Navigator.push(context, ScaleRoute(page: SignInPage()));
+              Navigator.push(
+                context,
+                ScaleRoute(page: SignInPage()),
+              );
             },
           ),
         ],
@@ -403,8 +385,7 @@ class _HomePageState extends State<HomePage> {
               ),
               if (_showSearchResults)
                 SizedBox(
-                  height:
-                      MediaQuery.of(context).size.height -
+                  height: MediaQuery.of(context).size.height -
                       200, // Give full screen height for search results
                   child: _buildSearchResults(),
                 )

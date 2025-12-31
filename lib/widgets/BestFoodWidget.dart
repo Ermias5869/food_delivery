@@ -57,7 +57,9 @@ class _BestFoodWidgetState extends State<BestFoodWidget> {
       child: Column(
         children: <Widget>[
           BestFoodTitle(),
-          Expanded(child: _buildContent()),
+          Expanded(
+            child: _buildContent(),
+          ),
         ],
       ),
     );
@@ -69,11 +71,16 @@ class _BestFoodWidgetState extends State<BestFoodWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(color: Color(0xFFfb3132)),
+            CircularProgressIndicator(
+              color: Color(0xFFfb3132),
+            ),
             SizedBox(height: 10),
             Text(
               'Loading special offers...',
-              style: TextStyle(color: Color(0xFF6e6e71), fontSize: 14),
+              style: TextStyle(
+                color: Color(0xFF6e6e71),
+                fontSize: 14,
+              ),
             ),
           ],
         ),
@@ -85,7 +92,11 @@ class _BestFoodWidgetState extends State<BestFoodWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.error_outline, color: Colors.red, size: 40),
+            Icon(
+              Icons.error_outline,
+              color: Colors.red,
+              size: 40,
+            ),
             SizedBox(height: 10),
             Text(
               'Failed to load special offers',
@@ -98,7 +109,10 @@ class _BestFoodWidgetState extends State<BestFoodWidget> {
             SizedBox(height: 5),
             Text(
               'Check your connection',
-              style: TextStyle(color: Color(0xFF6e6e71), fontSize: 12),
+              style: TextStyle(
+                color: Color(0xFF6e6e71),
+                fontSize: 12,
+              ),
             ),
             SizedBox(height: 10),
             ElevatedButton(
@@ -122,7 +136,11 @@ class _BestFoodWidgetState extends State<BestFoodWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.local_offer, color: Color(0xFFfae3e2), size: 50),
+            Icon(
+              Icons.local_offer,
+              color: Color(0xFFfae3e2),
+              size: 50,
+            ),
             SizedBox(height: 10),
             Text(
               'No special offers available',
@@ -135,7 +153,10 @@ class _BestFoodWidgetState extends State<BestFoodWidget> {
             SizedBox(height: 5),
             Text(
               'Check back later for discounts',
-              style: TextStyle(color: Color(0xFF9b9b9c), fontSize: 14),
+              style: TextStyle(
+                color: Color(0xFF9b9b9c),
+                fontSize: 14,
+              ),
             ),
           ],
         ),
@@ -192,25 +213,32 @@ class BestFoodTitle extends StatelessWidget {
 class BestFoodTiles extends StatelessWidget {
   final Food food;
 
-  const BestFoodTiles({Key? key, required this.food}) : super(key: key);
+  const BestFoodTiles({
+    Key? key,
+    required this.food,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double originalPrice = food.originalPrice ?? food.price;
     double discountPrice = food.price;
     if (food.discountPercent != null && food.originalPrice != null) {
-      discountPrice =
-          food.originalPrice! -
+      discountPrice = food.originalPrice! -
           (food.originalPrice! * food.discountPercent! / 100);
     }
 
     return InkWell(
       onTap: () {
-        Navigator.push(context, ScaleRoute(page: FoodDetailsPage(food: food)));
+        Navigator.push(
+          context,
+          ScaleRoute(page: FoodDetailsPage(food: food)),
+        );
       },
       child: Card(
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
         elevation: 3,
         child: Container(
           height: 220,
@@ -239,10 +267,8 @@ class BestFoodTiles extends StatelessWidget {
                         top: 10,
                         right: 10,
                         child: Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 5,
-                          ),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           decoration: BoxDecoration(
                             color: Color(0xFFfb3132),
                             borderRadius: BorderRadius.circular(20),
@@ -314,9 +340,7 @@ class BestFoodTiles extends StatelessWidget {
                           padding: EdgeInsets.only(bottom: 6),
                           child: Container(
                             padding: EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 3,
-                            ),
+                                horizontal: 8, vertical: 3),
                             decoration: BoxDecoration(
                               color: Colors.green.withOpacity(0.1),
                               borderRadius: BorderRadius.circular(8),
@@ -333,6 +357,7 @@ class BestFoodTiles extends StatelessWidget {
                         ),
 
                       Spacer(), // Push price + heart to bottom
+
                       // Price and Heart (aligned vertically at bottom)
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

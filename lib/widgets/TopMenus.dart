@@ -15,27 +15,19 @@ class _TopMenusState extends State<TopMenus> {
         scrollDirection: Axis.horizontal,
         children: const <Widget>[
           TopMenuTiles(
-            name: "Burger",
-            imageUrl: "ic_burger",
-            category: "burger",
-          ),
+              name: "Burger", imageUrl: "ic_burger", category: "burger"),
           TopMenuTiles(name: "Pizza", imageUrl: "ic_pizza", category: "pizza"),
           TopMenuTiles(name: "Cake", imageUrl: "ic_cake", category: "cake"),
           TopMenuTiles(
-            name: "Ice Cream",
-            imageUrl: "ic_ice_cream",
-            category: "icecream",
-          ),
+              name: "Ice Cream",
+              imageUrl: "ic_ice_cream",
+              category: "icecream"),
           TopMenuTiles(
-            name: "Burrito",
-            imageUrl: "ic_burrito",
-            category: "burrito",
-          ),
+              name: "Burrito", imageUrl: "ic_burrito", category: "burrito"),
           TopMenuTiles(
-            name: "Soft Drink",
-            imageUrl: "ic_soft_drink",
-            category: "softdrink",
-          ),
+              name: "Soft Drink",
+              imageUrl: "ic_soft_drink",
+              category: "softdrink"),
         ],
       ),
     );
@@ -62,8 +54,10 @@ class TopMenuTiles extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) =>
-                CategoryPage(category: category, categoryTitle: name),
+            builder: (context) => CategoryPage(
+              category: category,
+              categoryTitle: name,
+            ),
           ),
         );
       },
@@ -71,26 +65,26 @@ class TopMenuTiles extends StatelessWidget {
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(left: 10, right: 5, top: 5, bottom: 5),
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0xFFfae3e2),
-                  blurRadius: 25.0,
-                  offset: Offset(0.0, 0.75),
-                ),
-              ],
-            ),
-            child: Card(
-              color: Colors.white,
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                borderRadius: const BorderRadius.all(Radius.circular(3.0)),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                color: Color(0xFFfae3e2),
+                blurRadius: 25.0,
+                offset: Offset(0.0, 0.75),
               ),
-              child: Container(
-                width: 50,
-                height: 50,
-                child: Center(
-                  child: Image.asset(
+            ]),
+            child: Card(
+                color: Colors.white,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(3.0),
+                  ),
+                ),
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  child: Center(
+                      child: Image.asset(
                     'assets/images/topmenu/' + imageUrl + ".png",
                     width: 24,
                     height: 24,
@@ -101,19 +95,14 @@ class TopMenuTiles extends StatelessWidget {
                         size: 24,
                       );
                     },
-                  ),
-                ),
-              ),
-            ),
+                  )),
+                )),
           ),
-          Text(
-            name,
-            style: TextStyle(
-              color: Color(0xFF6e6e71),
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
+          Text(name,
+              style: TextStyle(
+                  color: Color(0xFF6e6e71),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400)),
         ],
       ),
     );

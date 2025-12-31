@@ -5,8 +5,11 @@ class SearchWidget extends StatefulWidget {
   final Function(String)? onSearchChanged;
   final Function()? onClearSearch;
 
-  const SearchWidget({Key? key, this.onSearchChanged, this.onClearSearch})
-    : super(key: key);
+  const SearchWidget({
+    Key? key,
+    this.onSearchChanged,
+    this.onClearSearch,
+  }) : super(key: key);
 
   @override
   _SearchWidgetState createState() => _SearchWidgetState();
@@ -99,14 +102,23 @@ class _SearchWidgetState extends State<SearchWidget> {
                 ),
               ),
               filled: true,
-              prefixIcon: Icon(Icons.search, color: Color(0xFFfb3132)),
+              prefixIcon: Icon(
+                Icons.search,
+                color: Color(0xFFfb3132),
+              ),
               fillColor: Color(0xFFFAFAFA),
               suffixIcon: _searchController.text.isNotEmpty
                   ? IconButton(
-                      icon: Icon(Icons.clear, color: Color(0xFFfb3132)),
+                      icon: Icon(
+                        Icons.clear,
+                        color: Color(0xFFfb3132),
+                      ),
                       onPressed: _clearSearch,
                     )
-                  : Icon(Icons.sort, color: Color(0xFFfb3132)),
+                  : Icon(
+                      Icons.sort,
+                      color: Color(0xFFfb3132),
+                    ),
               hintStyle: TextStyle(color: Color(0xFFd0cece), fontSize: 18),
               hintText: "What would you like to buy?",
             ),
@@ -130,7 +142,10 @@ class _SearchWidgetState extends State<SearchWidget> {
                   SizedBox(width: 8),
                   Text(
                     'Searching...',
-                    style: TextStyle(color: Color(0xFFfb3132), fontSize: 14),
+                    style: TextStyle(
+                      color: Color(0xFFfb3132),
+                      fontSize: 14,
+                    ),
                   ),
                 ],
               ),

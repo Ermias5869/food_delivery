@@ -11,10 +11,8 @@ class AuthService extends ChangeNotifier {
   bool _isLoading = false;
   bool _isAuthenticated = false;
 
-  // Use your server's base URL (same as cart service)
-  static const String _baseUrl = 'http://10.161.164.188:5000/api';
-  // static const String _baseUrl = 'http://10.151.209.124:5000/api';
-
+  static const String _baseUrl =
+      'https://food-delivery-api-g95h.onrender.com/api';
   // SharedPreferences keys
   static const String _tokenKey = 'auth_token';
   static const String _userIdKey = 'user_id';
@@ -31,86 +29,6 @@ class AuthService extends ChangeNotifier {
   String? get userName => _userName;
   bool get isLoading => _isLoading;
   bool get isAuthenticated => _isAuthenticated && _token != null;
-// Add this method to your AuthService class
-// Add to AuthService class
-  // Future<Map<String, dynamic>> resetPassword({
-  //   required String token,
-  //   required String password,
-  //   required String confirmPassword,
-  // }) async {
-  //   _isLoading = true;
-  //   notifyListeners();
-
-  //   try {
-  //     print('🔄 Resetting password with token');
-  //     print('🌐 URL: ${_baseUrl}/users/reset-password/$token');
-
-  //     final requestBody = {
-  //       'password': password,
-  //       'confirmPassword': confirmPassword,
-  //     };
-
-  //     final response = await http.patch(
-  //       Uri.parse('${_baseUrl}/users/reset-password/$token'),
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Accept': 'application/json',
-  //       },
-  //       body: json.encode(requestBody),
-  //     );
-
-  //     print('📥 Reset password response: ${response.statusCode}');
-  //     print('📥 Response body: ${response.body}');
-
-  //     if (response.statusCode == 200) {
-  //       final data = json.decode(response.body);
-
-  //       if (data['status'] == 'success') {
-  //         // Save new token
-  //         _token = data['token'];
-  //         _userId = data['data']['user']['_id'];
-  //         _userEmail = data['data']['user']['email'];
-  //         _userName = data['data']['user']['name'];
-  //         _isAuthenticated = true;
-
-  //         await _saveAuthData();
-
-  //         return {
-  //           'success': true,
-  //           'message': 'Password reset successful!',
-  //           'user': data['data']['user'],
-  //           'token': _token,
-  //         };
-  //       } else {
-  //         return {
-  //           'success': false,
-  //           'message': data['message'] ?? 'Password reset failed',
-  //         };
-  //       }
-  //     } else if (response.statusCode == 400) {
-  //       return {
-  //         'success': false,
-  //         'message': 'Token is invalid or has expired',
-  //       };
-  //     } else {
-  //       final errorData = json.decode(response.body);
-  //       return {
-  //         'success': false,
-  //         'message': errorData['message'] ?? 'Server error',
-  //       };
-  //     }
-  //   } catch (error) {
-  //     print('💥 Reset password error: $error');
-  //     return {
-  //       'success': false,
-  //       'message': 'Network error: $error',
-  //     };
-  //   } finally {
-  //     _isLoading = false;
-  //     notifyListeners();
-  //   }
-  // }
-
 // Add to your AuthService class
   Future<Map<String, dynamic>> resetPassword({
     required String token,
@@ -475,65 +393,6 @@ class AuthService extends ChangeNotifier {
       notifyListeners();
     }
   }
-
-  // Forgot Password
-  // Future<Map<String, dynamic>> forgotPassword(String email) async {
-  //   _isLoading = true;
-  //   notifyListeners();
-
-  //   try {
-  //     print('🔄 Requesting password reset for: $email');
-  //     print('🌐 URL: $_baseUrl/users/forgot-password');
-
-  //     final requestBody = {'email': email.toLowerCase()};
-
-  //     final response = await http.post(
-  //       Uri.parse('$_baseUrl/users/forgot-password'),
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Accept': 'application/json',
-  //       },
-  //       body: json.encode(requestBody),
-  //     );
-
-  //     print('📥 Forgot password response: ${response.statusCode}');
-  //     print('📥 Response body: ${response.body}');
-
-  //     if (response.statusCode == 200) {
-  //       final data = json.decode(response.body);
-
-  //       // For development/testing
-  //       if (data['token'] != null) {
-  //         print('🔑 Reset token: ${data['token']}');
-  //         print('🔗 Reset URL: ${data['resetURL']}');
-  //       }
-
-  //       return {
-  //         'success': true,
-  //         'message':
-  //             data['message'] ?? 'Password reset instructions sent to email',
-  //         'token': data['token'],
-  //         'resetURL': data['resetURL'],
-  //       };
-  //     } else {
-  //       final errorData = json.decode(response.body);
-  //       return {
-  //         'success': false,
-  //         'message':
-  //             errorData['message'] ?? 'Failed to send reset instructions',
-  //       };
-  //     }
-  //   } catch (error) {
-  //     print('💥 Forgot password error: $error');
-  //     return {
-  //       'success': false,
-  //       'message': 'Network error: $error',
-  //     };
-  //   } finally {
-  //     _isLoading = false;
-  //     notifyListeners();
-  //   }
-  // }
 
   // Sign Out (Simplified - remove context parameter)
   Future<void> signOut() async {
