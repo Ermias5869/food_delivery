@@ -10,8 +10,12 @@ class CartService extends ChangeNotifier {
   String? _userId;
   String? _authToken; // Store auth token directly
 
+  // Use the SAME baseUrl as your ApiService
   static const String _baseUrl =
       'https://food-delivery-api-g95h.onrender.com/api';
+  // static const String _baseUrl = 'http://10.151.209.124:5000/api';
+
+  // SharedPreferences key prefix
   static const String _cartItemsKey = 'cart_items_';
 
   CartService() {
